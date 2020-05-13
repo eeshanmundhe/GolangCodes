@@ -8,10 +8,12 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"time"
 )
 
 func main() {
-	var attemptStatus bool
+	var gameStatus bool
+	rand.Seed(time.Now().UTC().UnixNano())
 	randomNumber := rand.Intn(50) + 1
 	fmt.Println("Enter your guess from 1 to 50")
 	for attemptsLeft := 5; attemptsLeft > 0; {
@@ -23,12 +25,12 @@ func main() {
 			continue
 		}
 		attemptsLeft--
-		attemptStatus = validate(guess, randomNumber)
-		if attemptStatus {
+		gameStatus = validate(guess, randomNumber)
+		if gameStatus {
 			fmt.Println("You took", 5-attemptsLeft, "chances to guess")
 			break
 		}
-		if !attemptStatus && attemptsLeft == 0 {
+		if !gameStatus && attemptsLeft == 0 {
 			fmt.Println("The correct answer is:", randomNumber)
 		}
 	}
