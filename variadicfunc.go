@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func sum(nums ...int) {
+func sum(numbers ...int) {
 	fmt.Print(nums, " ")
 
 	for _, num := range nums {
@@ -14,9 +14,7 @@ func sum(nums ...int) {
 
 func main() {
 
-	sum(1, 2)
 	sum(1, 2, 3)
-
 	nums := []int{1, 2, 3, 4}
 	sum(nums...)
 }
